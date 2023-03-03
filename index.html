@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NIT Kurukshetra || Electricty Bill Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="form">
+      <div class="contact-info">
+        <h3 class="title">NIT KKR Electricity Bill Portal </h3>
+        <p class="text">
+          This form is for collecting the bill details of the consumers residing in the NIT Kurukshetra Campus.
+          <br> <br> NOTE: You will also get the Bill Details on your registered E-Mail Id.
+        </p>
+
+        <div class="info">
+          <div class="information">
+
+            <p>Electrical Maintenance Section, NIT KKR</p>
+          </div>
+          <div class="information">
+
+            <p>test@nitkkr.ac.in</p>
+          </div>
+          <div class="information">
+
+            <p>+91 900613752</p>
+          </div>
+        </div>
+
+        <div class="social-media">
+          <p>Connect with us :</p>
+          <div class="social-icons">
+            <a href="#">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div><br>
+          <div class="credit">Made with <span style="color:tomato">❤</span> by <a>Manoj Yadav</a></div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+
+        <form action="index.html" autocomplete="off" onsubmit="sendEmail(); reset(); return false ">
+          <h3 class="title">Consumer Bill Details</h3>
+          <div class="input-container">
+            <input id="text1" type="text" name="name" class="input" />
+            <label for="">Username</label>
+            <span>Username</span>
+          </div>
+          <div class="input-container">
+            <input id="email1" type="email" name="email" class="input" />
+            <label for="">Email</label>
+            <span>Email</span>
+          </div>
+          <div class="input-container">
+            <input id="tel1" type="tel" name="phone" class="input" />
+            <label for="">Phone</label>
+            <span>Phone</span>
+          </div>
+          <div class="input-container">
+            <input id="units1" type="number" name="Units Consumed" class="input" />
+            <label for="">Units Consumed</label>
+            <span>Units Consumed</span>
+          </div>
+          <div class="input-container">
+            <input id="amount1" type="number" name="Amount Payable" class="input" />
+            <label for="">Amount Payable</label>
+            <span>Amount Payable</span>
+          </div>
+          <div class="input-container textarea">
+            <textarea id="message1" name="message" class="input"></textarea>
+            <label for="">Message</label>
+            <span>Message</span>
+          </div>
+          <input type="submit" value="Send" class="btn" />
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script src="script.js"></script> -->
+  <script>
+    const inputs = document.querySelectorAll(".input");
+
+    function focusFunc() {
+      let parent = this.parentNode;
+      parent.classList.add("focus");
+    }
+
+    function blurFunc() {
+      let parent = this.parentNode;
+      if (this.value == "") {
+        parent.classList.remove("focus");
+      }
+    }
+
+    inputs.forEach((input) => {
+      input.addEventListener("focus", focusFunc);
+      input.addEventListener("blur", blurFunc);
+    });
+  </script>
+
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    function sendEmail() {
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "noreplynitkkr@gmail.com",
+        Password: "Kunj@123",
+        To: 'noreplynitkkr@gmail.com',
+        From: document.getElementById("email1").value,
+        Subject: "Bill details",
+        Body: "And this is the body"
+      }).then(
+        message => alert(message)
+      );
+    }
+  </script>
+</body>
+
+</html>
