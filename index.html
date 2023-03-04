@@ -62,7 +62,7 @@
         <form action="index.html" autocomplete="off" onsubmit="sendEmail(); reset(); return false ">
           <h3 class="title">Consumer Bill Details</h3>
           <div class="input-container">
-            <input id="text1" type="text" name="name" class="input" />
+            <input id="name1" type="text" name="name" class="input" />
             <label for="">Username</label>
             <span>Username</span>
           </div>
@@ -123,15 +123,16 @@
   <script>
     function sendEmail() {
       Email.send({
-        Host: "smtp.gmail.com",
+        Host: "smtp.elasticemail.com",
         Username: "noreplynitkkr@gmail.com",
-        Password: "Kunj@123",
-        To: 'noreplynitkkr@gmail.com',
-        From: document.getElementById("email1").value,
-        Subject: "Bill details",
-        Body: "And this is the body"
+        Password: "FC62F00C54F0F9239340E4BDB2351F8EED13",
+        To: document.getElementById("email1").value,
+        From: "noreplynitkkr@gmail.com",
+        Subject: "Bill details of  " + document.getElementById("name1").value,
+        Body: "Dear " + document.getElementById("name1").value + " <br> Email: " + document.getElementById("email1").value + " <br> Your Bill details are :" + " <br> Units of Electricity Consumed: " + document.getElementById("units1").value + " <br> Amount due : " + document.getElementById("amount1").value
+          + " <br> <br> Message : " + document.getElementById("message1").value + " <br> <br>Thanks and Regards" + " <br>Electrical Section NIT KKR"
       }).then(
-        message => alert(message)
+        message => alert("The details are recorded and Sent on your E-Mail.")
       );
     }
   </script>
